@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Post Form</title></head>
+<body>
+    <h1>{% if post %}Edit{% else %}Create{% endif %} Post</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Title" value="{{ post.title|default:'' }}">
+        <textarea name="content" placeholder="Content">{{ post.content|default:'' }}</textarea>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
